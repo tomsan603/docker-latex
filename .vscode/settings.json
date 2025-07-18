@@ -1,0 +1,119 @@
+{
+  // LaTeX WorkshopのSyncTeX機能（ソースコードとPDFの相互ジャンプ）のキー操作を設定
+  "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+
+  // VS Code内でPDFを新しいタブとして開く（エディタを左右分割し、右側にPDFを表示）
+  "latex-workshop.view.pdf.viewer": "tab",
+
+  // LaTeXのビルド時に生成される出力ファイル（PDFや一時ファイル）の保存先ディレクトリを指定
+  "latex-workshop.latex.outDir": "../out",
+
+  // .texファイルを保存するたびに、LaTeX Workshopが自動でビルドを実行
+  "latex-workshop.latex.autoBuild.run": "onSave",
+
+  // LaTeXコードのフォーマット（自動整形）に使用するツールを指定
+  "latex-workshop.formatting.latex": "latexindent",
+
+  // VS Codeエディタの単語区切り文字をカスタマイズ
+  "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　、。「」【】『』（）！？てにをはがのともへでや",
+
+  // LaTeX Workshopが使用するビルドツール（コマンドと引数）を定義
+  "latex-workshop.latex.tools": [
+    // latexmk を利用した uplatex によるビルドコマンド
+    {
+      "name": "Latexmk (upLaTeX)",
+      "command": "latexmk",
+      "args": [
+        "-f",
+        "-gg",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    // latexmk を利用した platex によるビルドコマンド
+    // 古い LaTeX のテンプレートを使いまわしている (ドキュメントクラスが jreport や jsreport ) 場合のため
+    {
+      "name": "Latexmk (pLaTeX)",
+      "command": "latexmk",
+      "args": [
+        "-f",
+        "-gg",
+        "-pv",
+        "-latex='platex'",
+        "-latexoption='-kanji=utf8 -no-guess-input-env'",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+  ],
+
+  // ビルド手順（レシピ）を定義度のし、どのツールをどの順序で実行するかを指定
+  // VS CodeのLaTeX Workshopメニューから、どちらのレシピを選ぶか選択可能
+  "latex-workshop.latex.recipes": [
+    // LaTeX(upLaTeX) で書かれた文書のビルドレシピ
+    {
+      "name": "upLaTeX",
+      "tools": [
+        "Latexmk (upLaTeX)"
+      ]
+    },
+    // LaTeX(pLaTeX) で書かれた文書のビルドレシピ
+    {
+      "name": "pLaTeX",
+      "tools": [
+        "Latexmk (pLaTeX)"
+      ]
+    },
+  ],
+
+  // マジックコメント付きの LaTeX ドキュメントをビルドする設定
+  // '%!TEX' で始まる行はマジックコメントと呼ばれ、LaTeX のビルド時にビルドプログラムに解釈され、
+  // プログラムの挙動を制御する事ができる
+  // 参考リンク: https://blog.miz-ar.info/2016/11/magic-comments-in-tex/
+  "latex-workshop.latex.magic.args": [
+    "-f",
+    "-gg",
+    "-pv",
+    "-synctex=1",
+    "-interaction=nonstopmode",
+    "-file-line-error",
+    "%DOC%"
+  ],
+
+  // クリーンアップ時に削除されるファイルの拡張子
+  // LaTeX 文書はビルド時に一時ファイルを生成するが、最終的に必要となるのはPDFファイルのみ
+  // LaTeX のビルド時に失敗した場合、失敗時に生成された一時ファイルが修正後のビルドに影響する
+  // よって、一時的なファイルを削除する機能 (クリーンアップ) が LaTeX Workshop には備わっている
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.synctex.gz",
+    // for Beamer files
+    "_minted*",
+    "*.nav",
+    "*.snm",
+    "*.vrb",
+  ],
+}

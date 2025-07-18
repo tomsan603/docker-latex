@@ -1,0 +1,11 @@
+services:
+  texlive:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspaces/tex
+      - ./.latexmkrc:/root/.latexmkrc
+    tty: true
+    environment:
+      SHELL: "/bin/bash"

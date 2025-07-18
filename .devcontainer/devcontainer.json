@@ -1,0 +1,20 @@
+{
+    "name": "texlive",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "texlive",
+    "workspaceFolder": "/workspaces/tex",
+    "shutdownAction": "stopCompose",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "extensions.verifySignature": false
+            },
+            "extensions": [
+                "james-yu.latex-workshop",
+                "MS-CEINTL.vscode-language-pack-ja",
+                "mhutchie.git-graph",
+                "eamodio.gitlens"
+            ]
+        }
+    }
+}
