@@ -5,10 +5,10 @@
 
 ## 前提条件
 1. Docker Desktop、Git、VS Codeをインストールしてください。  
-2. 以下のVS Code拡張機能をインストールしてください。  
+2. VS Code拡張で以下の拡張機能をインストールしてください。  
 （VS Code内でCtrl＋Shift＋Xをした後、以下のを入力＆インストールボタン押すだけです）
 - [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)  
-- [Latex Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)  
+- [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)  
 
 ## 手順
 1. 任意のディレクトリで以下のコードを実行します
