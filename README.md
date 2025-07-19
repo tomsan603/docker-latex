@@ -16,7 +16,7 @@
     git clone https://github.com/tomsan603/docker-texlive.git　
     ```
 2. VS Codeでdocker-texliveフォルダーを開きます
-3. devContainerを起動します
+3. Containerを起動します
    - 左下の`><`アイコンを選択したのち、`コンテナーで再度開く`を選択します
    - 初回起動時はビルドに20分ほどかかります（2回目以降はすぐ起動します）
 4. texフォルダーにtexファイルを格納し、画面左のTEXボタンを押し、ビルド＆PDF表示をするとtexフォルダーと同階層にoutフォルダーが作られ、そこに出力結果が格納されます
